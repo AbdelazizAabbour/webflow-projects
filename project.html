@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.track1 {
+  animation: scrollLeft 40s linear infinite;
+}
+
+.track2 {
+  animation: scrollRight 40s linear infinite;
+  margin-top: 20px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.carousel-item .imggg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+
+@keyframes scrollLeft {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .carousel-item {
+    width: 250px;
+    height: 170px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .carousel-item {
+    width: 220px;
+    height: 150px;
+  }
+  
+  .carousel-track {
+    gap: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-item {
+    width: 180px;
+    height: 130px;
+  }
+  
+  .carousel-track {
+    gap: 12px;
+    padding: 15px 0;
+  }
+  
+  .track2 {
+    margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .carousel-item {
+    width: 150px;
+    height: 110px;
+  }
+  
+  .carousel-track {
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  .track2 {
+    margin-top: 10px;
+  }
+  
+  .carousel-container {
+    padding: 10px 0;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-track track1">
+            <div class="carousel-item"><img class="imggg" src="picsProjet/1.png" alt="Project 1"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/2.png" alt="Project 2"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/3.png" alt="Project 3"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/4.png" alt="Project 4"></div>
+            <!-- Duplicate items for infinite scroll -->
+            <div class="carousel-item"><img class="imggg" src="picsProjet/7.png" alt="Project 3"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/5.png" alt="Project 1"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/8.png" alt="Project 4"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/6.png" alt="Project 2"></div>
+        </div>
+        
+        <div class="carousel-track track2">
+            <div class="carousel-item"><img class="imggg" src="picsProjet/9.png" alt="Project 5"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/10.png" alt="Project 6"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/12.png" alt="Project 7"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/11.png" alt="Project 8"></div>
+            <!-- Duplicate items for infinite scroll -->
+            <div class="carousel-item"><img class="imggg" src="picsProjet/13.png" alt="Project 5"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/14.png" alt="Project 6"></div>
+            <div class="carousel-item"><img class="imggg"  src="picsProjet/15.png" alt="Project 7"></div>
+            <div class="carousel-item"><img class="imggg" src="picsProjet/16.png" alt="Project 8"></div>
+        </div>
+    </div>
+
+    <script>
+        // Pause animation on hover
+document.querySelectorAll('.carousel-track').forEach(track => {
+ 
+  
+ track.addEventListener('mouseleave', () => {
+     track.style.animationPlayState = 'running';
+ });
+});
+
+    </script>
+</body>
+</html>

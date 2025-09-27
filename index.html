@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créolab Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="logo/creolab22.png">
+    
+</head>
+<body>
+    <canvas id="shaderCanvas"></canvas>
+
+
+
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----section 1-------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<nav>
+    <div class="logo">
+        <img src="logo/creolab.png" alt="Logo Créolab" width="100" height="550" />
+    </div>
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <ul class="menu">
+        <li><a href="#Accueil">Accueil</a></li>
+        <li><a href="#propos">À propos</a></li>
+        <li><a href="#services">Nos services</a></li>
+        <li><a href="#Projects">Projects</a></li>
+        <li><a href="#Temoignages">Témoignages</a></li>
+        <li><a href="#Contact">Contact</a></li>
+    </ul>
+</nav>
+
+<style>
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #FFC811;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+    }
+
+    .menu.active {
+        left: 0;
+    }
+
+    .menu li {
+        margin: 16px 0;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        menu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.menu li a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            menu.classList.remove('active');
+        });
+    });
+});
+</script>
+
+
+    
+
+    <header id="Accueil">
+        <h1>CREOLAB</h1>
+        <p style="font-size:25px; color: #ffffff;
+         font-weight: 300; text-align: center;
+         font-family: 'Poppins', sans-serif;
+          margin: 1rem 0; line-height: 1.6;margin-top: -60px; letter-spacing: 0.5px;">
+          Nous transformons vos idées en expériences visuelles inoubliables
+        </p>
+    </header>
+
+    <section class="persons1" id="Accueil">
+        <div class="person1"> 
+            <!-- Photo de la première personne -->
+            <img class="img1" src="fondateur/aziz2.png" alt="aziz" style="width: 350px; height: auto; margin-left: 150px; filter: drop-shadow(0 10px 15px rgba(255, 200, 17, 0.4));" />
+            <a href="https://creolab.rf.gd/?i=1" target="_blank" style="margin-left: 180px ; "><button>DÉCOUVRIR</button></a>
+        </div>
+
+        <div class="person2">
+            <!-- Photo de la deuxième personne -->
+            <img class="img22" src="fondateur/wiam2.png" alt="wiam"  style="margin-right: 100px; filter: drop-shadow(0 10px 15px rgba(255, 200, 17, 0.4));" />
+            <a href="https://wieamdev.ct.ws/" target="_blank" style="margin-right: 50px;"><button>DÉCOUVRIR</button></a>
+        </div>
+    </section>
+
+
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----section 2-------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+<section class="presentation" id="propos">
+<h2 class="section-title" data-text="Bienvenue chez Créolab-Web" style="font-family: 'HigherJump', system-ui; font-size: 15px; ">Bienvenue chez <span>Créolab-Web</span></h2>
+    <div class="presentation-container">
+        <div class="col-6 description" >
+            <p >Créolab est une agence créative spécialisée dans le développement web et le design numérique. Notre équipe passionnée combine expertise technique et créativité pour donner vie à vos projets digitaux.</p>
+            <p>Nous croyons en l'innovation et en la création d'expériences web uniques qui captent l'attention et engagent les utilisateurs. Notre approche personnalisée garantit que chaque projet reflète parfaitement l'identité et les objectifs de nos clients.</p>
+        </div>
+        <div class="col-6 image">
+            <img id="logo3d" src="./logo/creolab22.png" alt="L'équipe Créolab au travail">
+<style>
+    #logo3d {
+        transition: transform .4s ease, filter .4s ease;
+        filter: drop-shadow(0 0 12px rgba(255, 200, 17, .4));
+    }
+    #logo3d:hover {
+        transform: scale(1.08) rotate(-3deg);
+        filter: drop-shadow(0 0 24px rgba(255, 200, 17, .8));
+    }
+</style>
+        </div>
+    </div>
+</section>
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----section 3-------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+<section class="presentation" id="services">
+    <h2 class="section-title" data-text="Bienvenue chez Créolab-Web"  style="font-family: 'HigherJump', system-ui; font-size: 15px; ">Nos  <span>services</span></h2>
+    <div class="card">
+        <p><img src="bra.jpg" alt="branding" class="service-icon"></p>
+        <p><img src="mobile.jpg" alt="dev mobile" class="service-icon"></p>
+        <p><img src="full-stack.png" alt="dev fs" class="service-icon"></p>
+        <p><img src="Designer-UI.jpg" alt="design" class="service-icon fixed-icon"></p>
+        <p><img src="s.webp" alt="info" class="service-icon"></p>
+    </div>
+   
+    </section>
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----section 4-------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+<section class="presentation" id="Projects" >
+    <h2 class="section-title" data-text="Bienvenue chez Créolab-Web"  style="font-family: 'HigherJump', system-ui; font-size: 15px; ">Nos projets notre   <span>signature</span></h2>
+<div class="project-container">
+    <iframe src="project.html" 
+            title="Nos Projets" 
+            width="1400px" 
+            height="800px" 
+            frameborder="0"
+            loading="lazy"
+            required>
+    </iframe>
+</div>
+</section>
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----  revies  -------|||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+
+<section class="section__container testimonial__container" id="Temoignages">
+    <h2 class="section-title" data-text="Bienvenue chez Créolab-Web" style="font-family: 'HigherJump', system-ui; font-size: 15px;">Ce que disent <span>les clients</span></h2>
+    <div class="project-container">
+        <iframe src="rewies.html" 
+                title="Nos Projets" 
+                width="1400px" 
+                height="800px" 
+                frameborder="0"
+                loading="lazy"
+                required>
+        </iframe>
+    </div>
+    
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----  Contact  -------||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+<section class="contact-section" id="Contact">
+  <h2 class="contact-title" style="font-family: 'HigherJump', system-ui; font-size: 15px; "><span>Contact</span> Us</h2>
+  <div class="contact-container">
+    <form class="contact-form">
+      <div class="input-row">
+        <div class="input-group">
+          <label style="color: rgba(255, 200, 17, 0.5);">Firstname:</label>
+          <input type="text" placeholder="Your name ..." />
+        </div>
+        <div class="input-group">
+          <label style="color: rgba(255, 200, 17, 0.5);">Lastname:</label>
+          <input type="text" placeholder="Your last name ..." />
+        </div>
+      </div>
+      <div class="input-group full-width">
+        <label style="color: rgba(255, 200, 17, 0.5);">Email Address:</label>
+        <input type="email" placeholder="Your email address ..." />
+      </div>
+      <div class="input-group full-width">
+        <label style="color: rgba(255, 200, 17, 0.5);">Your Message:</label>
+        <textarea placeholder="Your message ..."></textarea>
+      </div>
+    </form>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="icon fab fa-whatsapp"></i>
+        <span  class="text">Whatsapp<br />+212 777-996998</span><br>
+        <span  class="text"><br />+212 604-804145</span>
+      </div>
+      <div class="contact-item">
+        <i class="icon fab fa-instagram"></i>
+        <span class="text">Instagram<br />@creolabweb</span>
+        <span class="text"><br />@creolab-web</span>
+      </div>
+      <div class="contact-item">
+        <i class="icon fab fa-linkedin"></i>
+        <span class="text">Linkedin<br />Abdelaziz Aabbour</span>
+        <span class="text"><br />Wiam Aarika</span>
+      </div>
+      <div class="contact-item">
+        <i class="icon fas fa-envelope"></i>
+        <span class="text">Email<br />azizabour77@gmail.com</span>
+        <span class="text"><br />aarikawieam@gmail.com </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----  map    -------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+
+
+<section class="location" id="Map" >
+<div class="container-map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d848600.2570545202!2d-7.3312293226562515!3d33.81631918000991!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sma!4v1753305240224!5m2!1sfr!2sma" width="940" height="400" style="border: 3px solid #FFD700; /* solid golden border */
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);  " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>    
+
+</section>
+
+
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||-----  Footer -------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* |||||||||||||||||||||||||||---------------------||||||||||||||||||||||||||||||||||| */ -->
+<!-- /* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */ -->
+ <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+        <div class="footer-section">
+            <img src="logo/creolab.png" alt="Logo Créolab" class="footer-logo">
+            <p>Créolab est une agence créative spécialisée dans le développement web et le design numérique.</p>
+        </div>
+        <div class="footer-section">
+        <h3>Follow me</h3>
+        <div class="link1">
+        <ul class="footer-links">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        </div>
+        </div>
+        <div class="footer-section">
+        <h3>Follow me</h3>
+        <div class="link2">
+            <ul class="footer-links">
+                <li><a href="">Web site developpement</a></li>
+                <li><a href="">mobile developement</a></li>
+                <li><a href="">branding</a></li>
+                <li><a href="">Designing logos </a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="footer-section">
+        <h3>Follow me</h3>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/wiam-aarika-a2977432b/" class="social-icon" style="color: wheat;"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/wieam-ar" class="social-icon"> <i class="fab fa-github" style="color: wheat;"></i></a>
+            <a href="+212 777-996998" class="social-icon"><i class="fas fa-phone-alt" style="color: wheat;"></i></a>
+        </div>
+        </div>
+     </div>
+     </div>
+    </div>
+ </footer>
+    
+</body>
+</html>
+<canvas id="shaderCanvas"></canvas>
+<script src="./script.js"></script>
+</body>
+</html>
